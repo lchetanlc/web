@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ece Projects</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+
+        }
+
+        body {
+            min-height: 100vh;
+            background: url(bg.jpg)no-repeat;
+
+            background-position: center;
+        }
+
+        .side-bar {
+            background: black;
+            backdrop-filter: blur(15px);
+            width: 290px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: -100%;
+            overflow-y: auto;
+            transition: 0.6s ease-in-out;
+            transition-property: left;
+            z-index: 9999;
+        }
+
+        .side-bar.active {
+            left: 0;
+        }
+
+        .side-bar .menu {
+            width: 100%;
+            margin-top: 80px;
+        }
+
+        .side-bar .menu .item {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .side-bar .menu .item a {
+            color: #fff;
+            font-size: 16px;
+            text-decoration: none;
+            display: block;
+            padding: 5px 30px;
+            line-height: 60px;
+        }
+
+        .side-bar .menu .item a:hover {
+            background: #8621F8;
+            transition: 0.3s ease;
+        }
+
+        .side-bar .menu .item i {
+            margin-right: 15px;
+        }
+
+        .side-bar .menu .item a .dropdown {
+            position: absolute;
+            right: 0;
+            margin: 20px;
+            transition: 0.3s ease;
+        }
+
+        .side-bar .menu .item .sub-menu {
+            background: rgba(255, 255, 255, 0.1);
+            display: none;
+        }
+
+        .side-bar .menu .item .sub-menu a {
+            padding-left: 80px;
+        }
+
+        .rotate {
+            transform: rotate(90deg);
+        }
+
+        .close-btn {
+            position: absolute;
+            color: white;
+            font-size: 40px;
+            right: 0;
+            margin: 25px;
+            cursor: pointer;
+        }
+
+        .menu-btn {
+            position: absolute;
+            color: black;
+            font-size: 40px;
+            margin: 25px;
+            cursor: pointer;
+        }
+
+        .main {
+            height: 100vh;
+
+            padding: 50px;
+
+        }
+
+        .main h1 {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 50px;
+            text-align: center;
+            line-height: 0px;
+            color: black;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 900px) {
+            .main h1 {
+                margin-top: 40px;
+                font-size: 40px;
+                line-height: 50px;
+            }
+        }
+
+        .projects {
+            color: black;
+            margin-top: 0px;
+        }
+
+        .projects ol {
+            counter-reset: li;
+            list-style: none;
+            padding: 0;
+            text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
+        }
+
+        .projects ol a {
+            position: relative;
+            display: block;
+            padding: .6em .4em .6em 2em;
+            margin: .5em 0;
+            background: #DAD2CA;
+            color: #444;
+            text-decoration: none;
+            border-radius: .3em;
+            transition: .3s ease-out;
+        }
+
+        .projects ol a:hover {
+            background: #E9E4E0;
+        }
+
+        .projects ol a:hover:before {
+            transform: rotate(360deg);
+        }
+
+        .projects ol a:before {
+            content: counter(li);
+            counter-increment: li;
+            position: absolute;
+            left: -1.3em;
+            top: 50%;
+            margin-top: -1.3em;
+            background: #f9dd94;
+            height: 2em;
+            width: 2em;
+            line-height: 2em;
+            border: .3em solid #fff;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 2em;
+            transition: all .3s ease-out;
+        }
+        .marquee{
+            padding: 20px;
+            margin-top: 25px;
+            font-size: 20px;
+        }
+        @media (max-width: 900px){
+            .marquee{
+                
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="menu-btn">
+        <i class="fas fa-bars"></i>
+    </div>
+    <div class="side-bar">
+        <div class="close-btn">
+            <i class="fas fa-times"></i>
+        </div>
+        <div class="menu">
+            <div class="item"><a href="index.html"><i class="fas fa-desktop"></i>Home</a></div>
+            <div class="item"><a href="#"><i class="fas fa-desktop"></i>Innovative Projects</a></div>
+            <div class="item">
+                <a class="sub-btn"><i class="fas fa-table"></i>VLSI Projects<i
+                        class="fas fa-angle-right dropdown"></i></a>
+                <div class="sub-menu">
+                    <a href="#" class="sub-item">Sub Item 01</a>
+                    <a href="#" class="sub-item">Sub Item 02</a>
+                    <a href="#" class="sub-item">Sub Item 03</a>
+                </div>
+            </div>
+            <div class="item">
+                <a class="sub-btn"><i class="fas fa-cogs"></i>Mini Projects<i
+                        class="fas fa-angle-right dropdown"></i></a>
+                <div class="sub-menu">
+                    <a href="#" class="sub-item">Sub Item 01</a>
+                    <a href="#" class="sub-item">Sub Item 02</a>
+                </div>
+            </div>
+            <div class="item"><a href="ece-projects.html"><i class="fas fa-th"></i>Ece Projects</a></div>
+
+            <div class="item"><a href="#"><i class="fas fa-info-circle"></i>Project Ideas</a></div>
+        </div>
+    </div>
+
+
+
+    <section class="main">
+        <h1>Electronics Engineering Projects</h1>
+
+        <div class="marquee">
+            <marquee direction="left" scrolldelay="15"  > This Portal Consits Of All The Important Projects Of Ece</marquee>
+        </div>
+
+
+        
+
+        <div class="projects">
+            <ol>
+                <li><a href="#">Construction of microcontroller based Touchscreen Mobile Phone with Password
+                        protected features.</a></li>
+                <li><a href="#">Construction of microcontroller based Touchscreen Mobile Phone with Password
+                        protected features.</a></li>
+                <li><a href="#">Construction of microcontroller based Touchscreen Mobile Phone with Password
+                        protected features.</a></li>
+                <li><a href="#">Construction of microcontroller based Touchscreen Mobile Phone with Password
+                        protected features.</a></li>
+                <li><a href="#">Construction of microcontroller based Touchscreen Mobile Phone with Password
+                        protected features.</a></li>
+                <li><a href="#">Construction of microcontroller based Touchscreen Mobile Phone with Password
+                        protected features.</a></li>
+                <li><a href="#">Construction of microcontroller based Touchscreen Mobile Phone with Password
+                        protected features.</a></li>
+                <li><a href="#">Construction of microcontroller based Touchscreen Mobile Phone with Password
+                        protected features.</a></li>
+                <li><a href="#">Construction of microcontroller based Touchscreen Mobile Phone with Password
+                        protected features.</a></li>
+                <li><a href="#">Construction of microcontroller based Touchscreen Mobile Phone with Password
+                        protected features.</a></li>
+                <li><a href="#">Construction of microcontroller based Touchscreen Mobile Phone with Password
+                        protected features.</a></li>
+                <li><a href="#">Construction of microcontroller based Touchscreen Mobile Phone with Password
+                        protected features.</a></li>
+                <li><a href="#">Construction of microcontroller based Touchscreen Mobile Phone with Password
+                        protected features.</a></li>
+                <li><a href="#">Construction of microcontroller based Touchscreen Mobile Phone with Password
+                        protected features.</a></li>
+                <li><a href="#">Construction of microcontroller based Touchscreen Mobile Phone with Password
+                        protected features.</a></li>
+                <li><a href="#">Construction of microcontroller based Touchscreen Mobile Phone with Password
+                        protected features.</a></li>
+                <li><a href="#">Construction of microcontroller based Touchscreen Mobile Phone with Password
+                        protected features.</a></li>
+                <li><a href="#">Construction of microcontroller based Touchscreen Mobile Phone with Password
+                        protected features.</a></li>
+                <li><a href="#">Construction of microcontroller based Touchscreen Mobile Phone with Password
+                        protected features.</a></li>
+                <li><a href="#">Construction of microcontroller based Touchscreen Mobile Phone with Password
+                        protected features.</a></li>
+                <li><a href="#">Construction of microcontroller based Touchscreen Mobile Phone with Password
+                        protected features.</a></li>
+                <li><a href="#">Construction of microcontroller based Touchscreen Mobile Phone with Password
+                        protected features.</a></li>
+                <li><a href="#">Construction of microcontroller based Touchscreen Mobile Phone with Password
+                        protected features.</a></li>
+                <li><a href="#">Construction of microcontroller based Touchscreen Mobile Phone with Password
+                        protected features.</a></li>
+                <li><a href="#">Construction of microcontroller based Touchscreen Mobile Phone with Password
+                        protected features.</a></li>
+                <li><a href="#">Construction of microcontroller based Touchscreen Mobile Phone with Password
+                        protected features.</a></li>
+                <li><a href="#">Construction of microcontroller based Touchscreen Mobile Phone with Password
+                        protected features.</a></li>
+                <li><a href="#">Construction of microcontroller based Touchscreen Mobile Phone with Password
+                        protected features.</a></li>
+                <li><a href="#">Construction of microcontroller based Touchscreen Mobile Phone with Password
+                        protected features.</a></li>
+                <li><a href="#">Construction of microcontroller based Touchscreen Mobile Phone with Password
+                        protected features.</a></li>
+                <li><a href="#">Construction of microcontroller based Touchscreen Mobile Phone with Password
+                        protected features.</a></li>
+                <li><a href="#">Construction of microcontroller based Touchscreen Mobile Phone with Password
+                        protected features.</a></li>
+                <li><a href="#">Construction of microcontroller based Touchscreen Mobile Phone with Password
+                        protected features.</a></li>
+                <li><a href="#">Construction of microcontroller based Touchscreen Mobile Phone with Password
+                        protected features.</a></li>
+                <li><a href="#">Construction of microcontroller based Touchscreen Mobile Phone with Password
+                        protected features.</a></li>
+                <li><a href="#">Construction of microcontroller based Touchscreen Mobile Phone with Password
+                        protected features.</a></li>
+                <li><a href="#">Construction of microcontroller based Touchscreen Mobile Phone with Password
+                        protected features.</a></li>
+                <li><a href="#">Construction of microcontroller based Touchscreen Mobile Phone with Password
+                        protected features.</a></li>
+                <li><a href="#">Construction of microcontroller based Touchscreen Mobile Phone with Password
+                        protected features.</a></li>
+                <li><a href="#">Construction of microcontroller based Touchscreen Mobile Phone with Password
+                        protected features.</a></li>
+                <li><a href="#">Construction of microcontroller based Touchscreen Mobile Phone with Password
+                        protected features.</a></li>
+                <li><a href="#">Construction of microcontroller based Touchscreen Mobile Phone with Password
+                        protected features.</a></li>
+                <li><a href="#">Construction of microcontroller based Touchscreen Mobile Phone with Password
+                        protected features.</a></li>
+                <li><a href="#">Construction of microcontroller based Touchscreen Mobile Phone with Password
+                        protected features.</a></li>
+                <li><a href="#">Construction of microcontroller based Touchscreen Mobile Phone with Password
+                        protected features.</a></li>
+
+            </ol>
+        </div>
+
+
+    </section>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //jquery for toggle sub menus
+            $('.sub-btn').click(function () {
+                $(this).next('.sub-menu').slideToggle();
+                $(this).find('.dropdown').toggleClass('rotate');
+            });
+
+            //jquery for expand and collapse the sidebar
+            $('.menu-btn').click(function () {
+                $('.side-bar').toggleClass('active');
+                $('.menu-btn').css("visibility", "visible");
+            });
+
+            $('.close-btn').click(function () {
+                $('.side-bar').removeClass('active');
+                $('.menu-btn').css("visibility", "visible");
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>
